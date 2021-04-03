@@ -20,7 +20,7 @@ jobs:
     - name: Decode API_CLIENT_ID
       env:
         API_CLIENT_ID: ${{ secrets.API_CLIENT_ID }}
-      run: echo $API_CLIENT_ID > local.properties
+      run: touch local.properties || echo $API_CLIENT_ID > local.properties
     - name: Decode API_BASE_URL
       env:
         API_BASE_URL: ${{ secrets.API_BASE_URL }}
