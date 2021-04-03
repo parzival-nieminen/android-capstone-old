@@ -2,7 +2,9 @@
 Project for: Android Kotlin Developer Nanodegree Program - nd940 - project 5
 
 # Libs
-* blurhash image decoder: https://github.com/woltapp/blurhash
+* blurhash https://github.com/woltapp/blurhash
+* koin https://insert-koin.io
+3 ktor https://ktor.io
 
 # Configuration
 To use the app, please set following build variables in your `local.properties` file
