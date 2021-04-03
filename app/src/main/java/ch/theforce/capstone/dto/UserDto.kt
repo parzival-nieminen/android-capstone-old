@@ -1,7 +1,10 @@
 package ch.theforce.capstone.dto
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
 import java.time.LocalDateTime
 
+@Parcelize
 data class UserDto(
     val id: String,
     val updated_at: LocalDateTime,
@@ -16,9 +19,9 @@ data class UserDto(
     val links: UserLinksDto?,
     val profile_image: ProfileImageDto?,
     val instagram_username: String?,
-    val total_collections : Int,
+    val total_collections: Int,
     val total_likes: Int,
     val total_photos: Int,
     val accepted_tos: Boolean,
     val for_hire: Boolean
-)
+) : Parcelable

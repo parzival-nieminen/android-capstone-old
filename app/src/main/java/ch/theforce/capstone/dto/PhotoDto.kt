@@ -1,8 +1,11 @@
 package ch.theforce.capstone.dto
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
 import java.time.LocalDateTime
 
-data class ResponseDto(
+@Parcelize
+data class PhotoDto(
     val id: String,
     val created_at: LocalDateTime,
     val updated_at: LocalDateTime,
@@ -25,4 +28,4 @@ data class ResponseDto(
     val location: LocationDto?,
     val views: Int,
     val downloads: Int
-)
+) : Parcelable

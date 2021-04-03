@@ -4,9 +4,8 @@ import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-data class LinksDto(
+data class TopicLinkDto(
     val self: String,
     val html: String,
-    val download: String,
-    val download_location: String
+    val photos: String
 ) : Parcelable
