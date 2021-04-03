@@ -7,8 +7,10 @@ Project for: Android Kotlin Developer Nanodegree Program - nd940 - project 5
 * [ktor](https://ktor.io)
 
 # Configuration
-To use the app, please set following build variables in your `local.properties` file
-First you need to create your client id on [Unsplash developers](https://unsplash.com/developers) 
+To use the app, please set following build variables in your `local.properties` file.
+
+First you need to create your client id on: [Unsplash developers](https://unsplash.com/developers)
+ 
 ```bash
 API_CLIENT_ID="Client-ID **YOUR_CLIENT_ID**"
 API_BASE_URL="https://api.unsplash.com"
