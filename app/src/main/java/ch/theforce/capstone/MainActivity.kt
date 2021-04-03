@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import ch.theforce.capstone.network.UnSplashHttpClient
 import ch.theforce.capstone.utils.BlurHashDecoder
+import com.squareup.picasso.Picasso
 import kotlinx.coroutines.launch
 import org.koin.android.ext.android.inject
 
@@ -18,10 +19,15 @@ class MainActivity : AppCompatActivity() {
         var photo = findViewById<ImageView>(R.id.photo)
 
         lifecycleScope.launch() {
-            val response = client.getRandomImage()
-            var photoBitmap =
-                BlurHashDecoder.decode(response.blur_hash, response.width / 3, response.height / 3)
+            val randomPhoto = client.getRandomPhoto()
+            val photoBitmap =
+                BlurHashDecoder.decode(
+                    randomPhoto.blur_hash,
+                    randomPhoto.width / 3,
+                    randomPhoto.height / 3
+                )
             photo.setImageBitmap(photoBitmap)
+            Picasso.get().load(randomPhoto.urls.full).into(photo)
         }
     }
 }

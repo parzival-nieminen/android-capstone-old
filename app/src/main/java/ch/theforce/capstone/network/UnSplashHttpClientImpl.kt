@@ -1,7 +1,8 @@
 package ch.theforce.capstone.network
 
 import ch.theforce.capstone.BuildConfig
-import ch.theforce.capstone.dto.ResponseDto
+import ch.theforce.capstone.dto.PhotoDto
+import ch.theforce.capstone.dto.TopicDto
 import ch.theforce.capstone.utils.LocalDateTimeDeserializer
 import io.ktor.client.*
 import io.ktor.client.engine.cio.*
@@ -10,6 +11,7 @@ import io.ktor.client.features.json.*
 import io.ktor.client.features.logging.*
 import io.ktor.client.request.*
 import io.ktor.http.*
+import timber.log.Timber
 import java.time.LocalDateTime
 
 /**
@@ -34,10 +36,18 @@ object UnSplashHttpClientImpl : UnSplashHttpClient {
     /**
      * HTTP GET one RandomImage data from the api
      */
-    override suspend fun getRandomImage(): ResponseDto {
-        val responseDto = secureClient.get<ResponseDto>("$baseUrl/photos/random")
+    override suspend fun getRandomPhoto(): PhotoDto {
+        return secureClient.get("$baseUrl/photos/random")
+    }
+
+    override suspend fun getFeaturedTopics(): List<TopicDto> {
+        return secureClient.get("$baseUrl/topics?order_by=featured")
+    }
+
+    override fun closeClients() {
+        Timber.i("Closing HTTP clients")
         secureClient.close()
-        return responseDto
+        publicClient.close()
     }
 
     /**
