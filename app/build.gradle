@@ -6,7 +6,7 @@ plugins {
 }
 // tips for gradle setup: https://bit.ly/39GptZX
 def localProperties = new Properties()
-localProperties.load(new FileInputStream(rootProject.file("local.properties")))
+localProperties.load(project.rootProject.file('local.properties').newDataInputStream())
 
 android {
     compileSdkVersion 30
