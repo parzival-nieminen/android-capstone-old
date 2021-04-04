@@ -17,6 +17,18 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 1.8
+    - name: Decode API_CLIENT_ID
+      env:
+        API_CLIENT_ID: "API_CLIENT_ID"
+      run: echo API_CLIENT_ID=$API_CLIENT_ID > ./local.properties
+    - name: Decode API_BASE_URL
+      env:
+        API_BASE_URL: "API_BASE_URL"
+      run: echo API_BASE_URL=$API_BASE_URL > ./local.properties
+    - name: Decode API_VERSION
+      env:
+        API_VERSION: "API_VERSION"
+      run: echo API_VERSION=$API_VERSION > ./local.properties
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
     - name: Build with Gradle
