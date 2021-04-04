@@ -8,22 +8,20 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v2
-    - name: set up JDK 1.8
-      uses: actions/setup-java@v1
-      with:
-        java-version: 1.8
-    - name: Decode API_CLIENT_ID
-      env:
-        API_CLIENT_ID: "API_CLIENT_ID"
-        API_BASE_URL: "API_BASE_URL"
-        API_VERSION: "API_VERSION"
-      run: echo API_CLIENT_ID=$API_CLIENT_ID > ./local.properties || echo API_BASE_URL=$API_BASE_URL > ./local.properties
-    - name: Grant execute permission for gradlew
-      run: chmod +x gradlew
-    - name: Build with Gradle
-      run: ./gradlew build
+      - uses: actions/checkout@v2
+      - name: set up JDK 1.8
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+      - name: Decode API_CLIENT_ID
+        env:
+          API_CLIENT_ID: "Client-ID **YOUR_CLIENT_ID**"
+          API_BASE_URL: "https://api.unsplash.com"
+          API_VERSION: "v1"
+        run: echo API_CLIENT_ID=$API_CLIENT_ID > ./local.properties || echo API_BASE_URL=$API_BASE_URL > ./local.properties || echo API_VERSION=API_VERSION > ./local.properties
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+      - name: Build with Gradle
+        run: ./gradlew build
