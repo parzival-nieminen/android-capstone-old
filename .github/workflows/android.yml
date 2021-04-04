@@ -18,9 +18,7 @@ jobs:
       - name: Decode API_CLIENT_ID
         env:
           API_CLIENT_ID: "Client-ID **YOUR_CLIENT_ID**"
-          API_BASE_URL: "https://api.unsplash.com"
-          API_VERSION: "v1"
-        run: echo API_CLIENT_ID=$API_CLIENT_ID > ./local.properties || echo API_BASE_URL=$API_BASE_URL > ./local.properties || echo API_VERSION=API_VERSION > ./local.properties
+        run: echo API_CLIENT_ID=$API_CLIENT_ID > ./local.properties
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
       - name: Build with Gradle
