@@ -26,8 +26,8 @@ android {
 
         debug {
             buildConfigField "String", "API_CLIENT_ID", localProperties.getProperty("API_CLIENT_ID")
-            buildConfigField "String", "API_BASE_URL", "https://api.unsplash.com"
-            buildConfigField "String", "API_VERSION", "v1"
+            buildConfigField "String", "API_BASE_URL", "\"" + getApiBaseUrl() + "\""
+            buildConfigField "String", "API_VERSION", "\"" + getApiVersion() + "\""
         }
         release {
             minifyEnabled false
@@ -96,4 +96,12 @@ dependencies {
     testImplementation 'org.assertj:assertj-core:3.19.0'
     androidTestImplementation 'org.assertj:assertj-core:3.19.0'
     androidTestImplementation 'org.assertj:assertj-core:3.19.0'
+}
+
+def getApiBaseUrl() {
+    return "https://api.unsplash.com"
+}
+
+def getApiVersion() {
+    return "v1"
 }
