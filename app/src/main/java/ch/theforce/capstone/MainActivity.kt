@@ -15,8 +15,9 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setTheme(R.style.Theme_Capstone)
         setContentView(R.layout.activity_main)
-        var photo = findViewById<ImageView>(R.id.photo)
+        val photo = findViewById<ImageView>(R.id.photo)
 
         lifecycleScope.launch() {
             val randomPhoto = client.getRandomPhoto()
